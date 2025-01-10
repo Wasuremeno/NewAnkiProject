@@ -1,0 +1,346 @@
+@font-face {
+    font-family: "Sour Gummy", sans-serif;
+    font-weight: 400;
+    src: url('assets/fonts/static/SourGummy_Expanded-Regular.ttf') format('ttf');
+    
+}
+@font-face {
+    font-family: "Sour Gummy", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    src: url('assets/fonts/static/SourGummy-italic.ttf') format('ttf');
+    
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+
+
+:root{
+    --main-color: #141414;
+    --secondary-color: #212121;
+    --unfamiliar: #525252;
+    --familiar: #4cb072;
+    --word-counter: #5f8bf8;
+    --text-grey: #939496;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: var(--main-color);
+    }
+  }
+
+  body{
+    /* font-weight: 300 !important; */
+    font-family: "Sour Gummy", sans-serif;
+    background-color: var(--main-color);
+    color: white;
+  }
+
+  nav{
+    height: 70px;
+    width: 100%;
+    background: var(--secondary-color);
+    display: flex;
+    z-index: -2;
+  }
+
+   img{
+    width: auto;
+    height: 100px;
+    border-radius: 18px 18px 18px 18px;
+    margin: 10px 0px 10px 40px;
+  }
+
+  .mode{
+    height: 100%;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    z-index: 2;
+  }
+
+
+  /* .mode:first-child{
+    background: var(--main-color);
+  } */
+
+  /* .mode>div:first-child{
+    background: var(--main-color);
+    border-radius: 18px 18px 18px 18px;
+    padding: 20px 40px;
+  } */
+
+
+  #dbwordcounter{
+    position: absolute;
+    background: var(--word-counter);
+    height: 16px;
+    width: auto;
+    border-radius: 18px 18px 18px 18px;
+    padding: 5px 10px;
+    /* top: -1px; */
+    right: 50px;
+  }
+
+  #animation{
+    background-color: var(--main-color);
+    z-index: -1;
+    padding: 0;
+    top: 5px;
+    left: 22%;
+    border-radius: 18px 18px 18px 18px;
+    position: absolute;
+    width: 201.84px;
+    height: 58.5px;
+    animation-name: example;
+    animation-duration: 2s;
+  }
+
+  @keyframes example {
+    0%   {left: 40%; top:5px;}
+    50% {left:52%; top:5px; width: 179px;}
+    100% {display: none;}
+  }
+
+  input[type=radio]#toggle-switch {
+    appearance: none;
+    border-radius: 18px 18px 18px 18px;
+    /* padding: 20px 40px; */
+    height: 58.5px;
+    width: 201px;
+    outline: 0;
+    cursor: pointer;
+    list-style-type: none;
+    color: white;
+  }
+  input[type=radio]#toggle {
+    appearance: none;
+    border-radius: 18px 18px 18px 18px;
+    /* padding: 20px 40px; */
+    height: 58.5px;
+    width: 201px;
+    outline: 0;
+    cursor: pointer;
+    list-style-type: none;
+    color: white;
+  }
+
+  
+  input[type=radio]#toggle-switch:checked{
+    background: var(--main-color);
+  }
+  input[type=radio]#toggle:checked{
+    background: var(--main-color);
+  }
+
+  label[for=toggle-switch]{
+    border-radius: 18px 18px 18px 18px;
+    padding: 20px 40px;
+    height: 58.5px;
+  }
+  label[for=toggle]{
+    border-radius: 18px 18px 18px 18px;
+    height: 58.5px;
+  }
+
+  label span:first-of-type {
+    position: relative;
+    left: -27px;
+  }
+  
+  label p.label-text {
+    position: relative;
+    top: -45px;
+    color: white;
+    text-align: center;
+  }
+
+  .arrow-left{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  nav>.arrow-left>a[href]{
+    color: white;
+    text-decoration: none;
+  }
+
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 70vh;
+  }
+
+  .category-section{
+    width: 60%;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    
+  }
+
+  .option{
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background: var(--secondary-color);
+    margin-bottom: 3px;
+  }
+
+  .option>a{
+    color: white;
+    text-decoration: none;
+  }
+
+  .option:first-child{
+   border-radius: 18px 18px 0px 0px;
+  }
+  .option:last-child{
+   border-radius: 0px 0px 18px 18px;
+  }
+
+  span{
+    height: 100%;
+    display: inline-block;
+  }
+
+  .flashcard{
+    display: block;
+  }
+
+  .japanese{
+    height: 30vh;
+    width: 45vw;
+    background: var(--secondary-color);
+    margin-bottom: 3px;
+    border-radius: 18px 18px 0px 0px;
+  }
+
+  .english{
+    height: 30vh;
+    width: 45vw;
+    background: var(--secondary-color);
+    border-radius: 0px 0px 18px 18px;
+  }
+
+  .furigana{
+    display: flex;
+    color: #B48A47;
+    padding: 10px 0px 10px 40px;
+  }
+
+  .kanji{
+    display: flex;
+    color: #EE534F;
+    padding-left: 40px;
+  }
+  .katakana{
+    display: flex;
+    color: #50a96f;
+    padding-left: 40px;
+  }
+  .translation{
+    padding: 40px;
+}
+
+.choose{
+    display: none;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 50px;
+    height: 100%;
+}
+
+form{
+    height: 30%;
+    width: 100%;
+}
+
+.click{
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    color: #c0c0c0;
+    outline: none;
+    border: none;
+}
+
+#green-button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 0px 18px;
+}
+#grey-button{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 18px 0px;
+}
+.affirmative{
+    background: var(--familiar);
+}
+.negative{
+    background: var(--unfamiliar);
+}
+
+#memorized{
+  display: none;
+  justify-content: space-around;
+}
+
+.affirmative::after{
+    /* content: '  >'; */
+}
+.negative::before{
+    /* content: '<  '; */
+}
+
+/* .choose{
+    container-name: myContainer;
+    container-type: inline-size;
+}
+
+
+@container myContainer (width < 100px) {
+    .affirmative {
+      border: 2px solid maroon;    
+      background-color: salmon;
+    }
+  } */
+
+  /* unfamiliar */
+  /* familiar */
+
+  .weekdays{
+    height: 80px;
+    width: 60%;
+    line-height: 80px;
+    text-align: center;
+    background: var(--secondary-color);
+    margin-bottom: 3px;
+    border-radius: 18px 18px 18px 18px;
+    display: flex;
+    flex-direction: row;
+  }
+
+  .weekday{
+    border: 1px solid red;  
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+  }
