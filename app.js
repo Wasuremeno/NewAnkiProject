@@ -80,9 +80,13 @@ function switching(){
   if(document.getElementById('toggle').checked) {
     document.getElementById("dbwordcounter").style.zIndex = "-1";
     console.log("checked learn");
+  }else if (document.getElementById('toggle-switch').checked == false){
+    console.log("i don't understand it");
+
   }else{
     document.getElementById("dbwordcounter").style.zIndex = "10";
     console.log("checked review");
   }
 
 }
+

@@ -8,6 +8,7 @@ include("database.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
     <title>Anki</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -17,7 +18,7 @@ include("database.php");
     <div class="container">
     <div class="category-section">
         <div class="option">
-            <a href="learnign.php">Learn new words</a>
+            <a href="learning.php">Learn new words</a>
         </div>
         <div class="option">
             <a href="review.php ">Review words</a>
@@ -31,6 +32,13 @@ include("database.php");
     <div class="container">
     <div class="weekdays">
         <?php $currentDate = date('l'); 
+              $currentDateArrow = "arrow";
+
+              if (class_exists($currentDate)) {
+              
+            }
+
+
         switch ($currentDate) {
             case "Monday":
                 echo "Monday";
@@ -57,7 +65,7 @@ include("database.php");
         ?>
 
 <div class="Sunday weekday">S</div>
-<div class="Monday weekday">M</div>
+<div class="Monday weekday">M<i class="arrow"></i></div>
 <div class="Tuesday weekday">T</div>
 <div class="Wednesday weekday">W</div>
 <div class="Thursday weekday">T</div>

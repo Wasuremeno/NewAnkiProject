@@ -1,12 +1,13 @@
 <?php
     include("database.php");
     
-    $sql = "SELECT * FROM japanese WHERE memorized = '1' ORDER BY RAND() LIMIT 1 ";
+    $sql = "SELECT japanese.furigana, japanese.kanji, japanese.memorized, japanese.katakana, japanese.english, japanese.id, japanese_img.img_path FROM japanese INNER JOIN japanese_img ON japanese.id = japanese_img.id WHERE memorized = '1' ORDER BY RAND() LIMIT 1;";
+    //inner join
+    // SELECT japanese.english, japanese_img.img_path FROM japanese INNER JOIN japanese_img ON japanese.id = japanese_img.id;
 
-    // $count = "SELECT COUNT(*) FROM japanese WHERE memorized = '1';";
-//     $count = mysql_query("SELECT count(*) FROM japanese WHERE memorized = '1';");
-// echo mysql_result($count, 0);
- 
+
+
+
     
     $result = mysqli_query($conn, $sql);
     if(mysqli_num_rows($result) > 0){
@@ -37,7 +38,7 @@
     else if(isset($_POST['know'])) {
         $stmt = $conn->prepare("UPDATE japanese SET memorized = '1' WHERE id = ?");
         $stmt->bind_param("i", $notid);
-        $notid = $row["id"];
+        $notid = $row["img_path"];
         $stmt->execute();
         $stmt->close();
     }
@@ -66,6 +67,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="flashcard web application">
+    <meta name="author" content="Dmitrii Vlaskin">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Anki by Dmitrii Vlaskin">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://127.0.0.1:8080/review.php">
+    <meta property="og:description" content="pet project based on flashcard concept for japanese learning">
+    <meta property="og:image" content="wasuremono.jpeg">
+
+
     <title>Anki-Learning</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" href="favicon.png">
@@ -85,7 +96,7 @@
                 
           
             
-            <div style="position: relative; padding: 20px 40px; display: flex;">
+            <div style="position: relative;  display: flex;">
                 <span id="dbwordcounter">
                     <?php
                     
@@ -105,7 +116,7 @@
     <div class="container">
         <div class="flashcard">
             <div class="japanese">
-                <img  src="img/<?php echo $row["id"];?>.png"  onerror="this.style.display='none'">
+                <img  src="img/<?php echo $row["img_path"];?>.png"  onerror="this.style.display='none'">
                 <div id="furigana" class="furigana"><?php  echo $row["furigana"]; ?></div>
                 <div id="kanji" class="kanji"><?php  echo $row["kanji"]; ?></div>
                 <div id="katakana" class="katakana"><?php  echo $row["katakana"]; ?></div>
@@ -130,6 +141,14 @@
         </div>
     </div>
     <script src="app.js"></script>
+    <script>
+        document.getElementById('toggle').addEventListener('change', function() {
+  if (this.checked) {
+    window.location.replace("http://192.168.0.100:8080/review.php");
+  }
+})
+    </script>
+
 
 </body>
 </html>
